@@ -1,13 +1,18 @@
-/* Mobile-first: nav collapses behind a native <details> disclosure so it */
+/* Mobile-first: nav collapses behind a checkbox-driven disclosure so it */
 /* works without JavaScript, then is forced open into a row on desktop. */
+/* (A native <details> is not used here because closed content stays */
+/* unpainted in some browsers even when `display` is overridden.) */
 .menu {
+    max-width: 45rem;
+    width: 87.5%;
     margin: 1.4rem 0;
     font-family: var(--font-sans);
 }
 
-.menu-toggle {
-    max-width: 45rem;
-    width: 87.5%;
+.menu-toggle-checkbox {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
 }
 
 .menu-toggle-label {
@@ -15,22 +20,13 @@
     align-items: center;
     gap: 0.6rem;
     cursor: pointer;
-    list-style: none;
     font-size: 1.2rem;
     letter-spacing: 0.05em;
     text-transform: uppercase;
     user-select: none;
 }
 
-.menu-toggle-label::-webkit-details-marker {
-    display: none;
-}
-
-.menu-toggle-label::marker {
-    content: "";
-}
-
-.menu-toggle-label:focus-visible {
+.menu-toggle-checkbox:focus-visible ~ .menu-toggle-label {
     outline: medium auto currentColor;
     outline-offset: 2px;
 }
@@ -64,21 +60,21 @@
     top: 5px;
 }
 
-.menu-toggle[open] .menu-toggle-icon {
+.menu-toggle-checkbox:checked ~ .menu-toggle-label .menu-toggle-icon {
     background: transparent;
 }
 
-.menu-toggle[open] .menu-toggle-icon::before {
+.menu-toggle-checkbox:checked ~ .menu-toggle-label .menu-toggle-icon::before {
     transform: translateY(5px) rotate(45deg);
 }
 
-.menu-toggle[open] .menu-toggle-icon::after {
+.menu-toggle-checkbox:checked ~ .menu-toggle-label .menu-toggle-icon::after {
     transform: translateY(-5px) rotate(-45deg);
 }
 
-.menu-toggle ul {
+.menu-toggle-list {
     list-style: none;
-    display: flex;
+    display: none;
     flex-direction: column;
     gap: 0.75rem;
     padding: 0;
@@ -87,11 +83,15 @@
     width: auto;
 }
 
-.menu-toggle li {
+.menu-toggle-checkbox:checked ~ .menu-toggle-list {
+    display: flex;
+}
+
+.menu-toggle-list li {
     margin-right: 0;
 }
 
-.menu-toggle li a {
+.menu-toggle-list li a {
     text-decoration: none;
     letter-spacing: 0.05em;
     text-transform: uppercase;
@@ -102,8 +102,8 @@
         display: none;
     }
 
-    /* force the menu to always render as a row, regardless of the <details> open state */
-    .menu-toggle ul {
+    /* force the menu to always render as a row, regardless of the checkbox state */
+    .menu-toggle-list {
         display: flex !important;
         flex-direction: row;
         flex-wrap: wrap;
@@ -111,7 +111,7 @@
         margin: 0;
     }
 
-    .menu-toggle li {
+    .menu-toggle-list li {
         margin-right: 1.5rem;
     }
 }
