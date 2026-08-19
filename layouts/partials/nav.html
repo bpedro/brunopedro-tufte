@@ -1,0 +1,13 @@
+<nav class="menu">
+    <details class="menu-toggle">
+        <summary class="menu-toggle-label">
+            <span class="menu-toggle-icon" aria-hidden="true"></span>
+            Menu
+        </summary>
+        <ul>
+        {{ range .Site.Menus.nav  }}
+            <li><a href="{{ .URL }}">{{ .Name }}</a></li>
+        {{ end }}
+        </ul>
+    </details>
+</nav>

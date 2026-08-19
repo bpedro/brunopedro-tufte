@@ -1,0 +1,62 @@
+{{ partial "header.html" . }}
+
+<body>
+<article id="main">
+{{ partial "brand.html" . }}
+{{ partial "content.header.html" . }}
+    {{ $data := .Data }}
+    <div class="terms-columns">
+      <div class="terms-column">
+        <h2>By Frequency</h2>
+        <section>
+        <table>
+        <thead>
+          <tr>
+            <th>Term</th>
+            <th>Count</th>
+          </tr>
+        </thead>
+        </tbody>
+        {{ range $key, $value := .Data.Terms.ByCount }}
+          <tr>
+            <td>
+            <a href="{{ $value.Name| urlize }}">
+            {{ $value.Name}}
+            </a>
+            </td>
+            <td>{{  $value.Count }}</td>
+          </tr>
+        {{ end }}
+        </tbody>
+        </table>
+      </section>
+      </div>
+
+      <div class="terms-column">
+        <h2>Alphabetically</h2>
+        <section>
+        <table>
+        <thead>
+          <tr>
+            <th>Term</th>
+            <th>Count</th>
+          </tr>
+        </thead>
+        </tbody>
+        {{ range $key, $value := .Data.Terms.Alphabetical}}
+          <tr>
+            <td><a href="{{ $value.Name| urlize }}">
+              {{ $value.Name}}
+            </a></td>
+            <td>{{  $value.Count }}</td>
+          </tr>
+        {{ end }}
+        </tbody>
+        </table>
+        </section>
+      </div>
+    </div>
+{{ partial "footer.html" . }}
+</article>
+</body>
+</html>

@@ -1,0 +1,74 @@
+/* ------------------------------------------------------------------------ */
+/* Card grid used for both the theme's own list template and the homepage. */
+/* ------------------------------------------------------------------------ */
+.list-year {
+    font-family: var(--font-sans);
+    font-weight: 600;
+    font-style: normal;
+    font-size: 1.6rem;
+    margin-top: 3rem;
+    margin-bottom: 1rem;
+}
+
+.list-year:first-child {
+    margin-top: 1.4rem;
+}
+
+.list-count {
+    color: var(--color-muted);
+    font-weight: 400;
+}
+
+.post-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.2rem;
+    width: 100%;
+    max-width: 90rem;
+    margin: 0;
+    padding: 0;
+}
+
+.post-card {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    padding: 1.2rem 1.4rem;
+    border: 1px solid #e3e3e0;
+    border-radius: 6px;
+    color: inherit;
+    text-decoration: none;
+    background: #fff;
+    transition: border-color 0.15s ease, transform 0.15s ease;
+}
+
+.post-card:hover,
+.post-card:focus-visible {
+    border-color: var(--color-text);
+}
+
+.post-card-date {
+    font-family: var(--font-sans);
+    font-size: 0.9rem;
+    color: var(--color-muted);
+}
+
+.post-card-title {
+    font-family: var(--font-sans);
+    font-weight: 600;
+    font-size: 1.3rem;
+    line-height: 1.3;
+}
+
+.post-card-summary {
+    font-size: 1rem;
+    line-height: 1.5;
+    color: var(--color-text);
+}
+
+@media (min-width: 760px) {
+    .post-grid {
+        grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr));
+        gap: 1.5rem;
+    }
+}

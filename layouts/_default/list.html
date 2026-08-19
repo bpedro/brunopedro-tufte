@@ -1,0 +1,29 @@
+{{ define "main" }}
+
+<article id="main">
+
+{{ partial "brand.html" . }}
+
+{{ partial "content.header.html" . }}
+
+<section class="list-page">
+{{ range .Data.Pages.GroupByDate "2006" }}
+  <h2 class="list-year">{{ .Key }} <span class="list-count">({{ len .Pages }})</span></h2>
+  <div class="post-grid">
+    {{ range .Pages }}
+    <a class="post-card" href="{{ .RelPermalink }}">
+      <span class="post-card-date">{{ .Date.Format "Jan 2" }}</span>
+      <span class="post-card-title">{{ .Title }}</span>
+      {{ with .Summary }}<span class="post-card-summary">{{ . | plainify | truncate 140 }}</span>{{ end }}
+    </a>
+    {{ end }}
+  </div>
+{{ end }}
+</section>
+
+{{ partial "footer.html" . }}
+
+</article>
+
+{{ end }}
+

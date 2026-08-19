@@ -1,0 +1,14 @@
+name = "Bruno Pedro's Tufte"
+license = "MIT"
+licenselink = "https://github.com/bpedro/brunopedro-tufte/blob/master/LICENSE.md"
+description = "A responsive, mobile-first Tufte-css blog theme, forked from hugo-tufte."
+homepage = "https://github.com/bpedro/brunopedro-tufte"
+tags = ["blog", "tufte", "minimal", "light", "personal", "responsive"]
+features = ["math", "tufte-css", "tufte", "responsive"]
+min_version = 0.83
+
+authors = [
+  {name = "Bruno Pedro", homepage = "https://brunopedro.com"},
+  {name = "Shawn O'Hare", homepage = "http://www.shawnohare.com"},
+  {name = "Slashformotion", homepage = "https://github.com/slashformotion"}
+]

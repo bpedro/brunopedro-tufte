@@ -1,0 +1,16 @@
+/* ------------------------------------------------------------------------ */
+/* Design tokens shared across the theme (colors, fonts). Keeping the look   */
+/* and feel here is what makes it portable to another site using this theme */
+/* ------------------------------------------------------------------------ */
+:root {
+    --color-bg: #f8ffff;
+    --color-text: #111;
+    --color-muted: #aaa;
+
+    --font-serif: "Alegreya", et-book, "Noto Serif SC", Palatino, "Palatino Linotype", "Palatino LT STD", "Book Antiqua", Georgia, serif, "Noto Emoji";
+    --font-sans: "Inter", sans-serif;
+    --font-mono: Consolas, "Liberation Mono", Menlo, Courier, monospace, "Noto Emoji";
+}
+
+/* Breakpoints as SCSS variables: CSS custom properties can't be read inside @media conditions. */
+$bp-mobile: 760px;
