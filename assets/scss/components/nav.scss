@@ -2,10 +2,10 @@
 /* works without JavaScript, then is forced open into a row on desktop. */
 /* (A native <details> is not used here because closed content stays */
 /* unpainted in some browsers even when `display` is overridden.) */
+/* Width/max-width live on the sticky .brand panel; .menu just fills it. */
 .menu {
-    max-width: 45rem;
-    width: 87.5%;
-    margin: 1.4rem 0;
+    width: 100%;
+    margin: 1rem 0 0;
     font-family: var(--font-sans);
 }
 

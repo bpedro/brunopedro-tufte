@@ -16,6 +16,11 @@ body {
     padding: 0;
 }
 
+/* Keeps in-page anchor targets (headings, footnotes, TOC links) clear of the sticky glass header. */
+html {
+    scroll-padding-top: 9rem;
+}
+
 article {
     padding-top: 0;
 }
