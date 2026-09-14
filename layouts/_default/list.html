@@ -11,7 +11,16 @@
   <h2 class="list-year">{{ .Key }} <span class="list-count">({{ len .Pages }})</span></h2>
   <div class="post-grid">
     {{ range .Pages }}
-    <a class="post-card" href="{{ .RelPermalink }}">
+    {{ $img := .Params.image }}
+    {{ if not $img }}
+      {{/* Fall back to the first <img> rendered from the post content (e.g. via the figure shortcode). */}}
+      {{ with findRE "<img[^>]+>" .Content 1 }}
+        {{ with findRE `src="[^"]*"` (index . 0) 1 }}
+          {{ $img = index . 0 | strings.TrimPrefix `src="` | strings.TrimSuffix `"` }}
+        {{ end }}
+      {{ end }}
+    {{ end }}
+    <a class="post-card{{ if $img }} has-image{{ end }}" href="{{ .RelPermalink }}"{{ if $img }} style="{{ printf "--card-image: url('%s');" ($img | safeURL) | safeCSS }}"{{ end }}>
       <span class="post-card-date">{{ .Date.Format "Jan 2" }}</span>
       <span class="post-card-title">{{ .Title }}</span>
       {{ with .Summary }}<span class="post-card-summary">{{ . | plainify | truncate 140 }}</span>{{ end }}

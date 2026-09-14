@@ -30,6 +30,9 @@
 }
 
 .post-card {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
     display: flex;
     flex-direction: column;
     gap: 0.4rem;
@@ -47,6 +50,19 @@
     border-color: var(--color-text);
 }
 
+/* Faint cover image, kept behind the text via the isolated stacking context above. */
+.post-card.has-image::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background-image: var(--card-image);
+    background-size: cover;
+    background-position: center;
+    opacity: 0.2;
+    pointer-events: none;
+}
+
 .post-card-date {
     font-family: var(--font-sans);
     font-size: 0.9rem;
@@ -58,12 +74,24 @@
     font-weight: 600;
     font-size: 1.3rem;
     line-height: 1.3;
+    /* Reserve space for 2 lines so titles of any length keep cards the same height. */
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+    min-height: calc(1.3em * 2);
 }
 
 .post-card-summary {
     font-size: 1rem;
     line-height: 1.5;
     color: var(--color-text);
+    /* Reserve space for 3 lines so summaries of any length keep cards the same height. */
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    overflow: hidden;
+    min-height: calc(1.5em * 3);
 }
 
 @media (min-width: 760px) {

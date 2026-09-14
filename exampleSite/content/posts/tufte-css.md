@@ -9,6 +9,7 @@ toc: false
 hideDate: true
 hideReadTime: true
 # categories: [tufte-css]
+image: "/images/test-dark.svg" # TODO: remove after testing the card background with a dark image
 ---
 Tufte CSS provides tools to style web articles using the ideas demonstrated by Edward Tufte’s books and handouts. Tufte’s style is known for its simplicity, extensive use of sidenotes, tight integration of graphics with text, and carefully chosen typography.{{< marginnote ind="⚠" >}}This demo page is a technical replicate of the original [Tufte CSS](https://edwardtufte.github.io/tufte-css/) page on Edward Tufte's GitHub site. Information may not accurately reflect features of the brunopedro-tufte theme.{{< /marginnote >}}
 
