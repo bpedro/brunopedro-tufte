@@ -90,9 +90,9 @@
   {{ . | safeHTML }}
   {{ else }}
   &copy; 2002–{{now.Format "2006"}}
+  {{ end }}
   {{ with .Site.Params.copyrightHolder }}{{ . }}{{end}}.
   All rights reserved.
-  {{end}}
 </p>
 </div>
 {{ end }}

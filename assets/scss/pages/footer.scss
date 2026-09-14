@@ -38,5 +38,7 @@ footer.page-footer ul.page-footer-menu li {
 .copyright {
 }
 .copyright p {
+    /* Overrides tufte.scss's generic p{width} at both desktop and mobile breakpoints so this line matches the footer's own width (its hr). */
+    width: 100%;
     font-size: 90%;
 }
