@@ -1,13 +1,16 @@
 /* Sticks to the viewport top so content scrolls up behind it; the width */
 /* constraint here (moved off .menu) keeps it a content-width glass panel */
-/* rather than a full-bleed bar. */
+/* rather than a full-bleed bar. fit-content(45rem) shrink-wraps to the */
+/* widest line (title, subtitle or nav row) up to 45rem, so the panel only */
+/* grows as wide as the menu needs instead of always spanning 45rem. */
 .brand {
     position: sticky;
     top: 0;
     z-index: 20;
     box-sizing: border-box;
-    width: 87.5%;
-    max-width: 45rem;
+    width: fit-content;
+    width: fit-content(45rem);
+    max-width: 100%; /* never overflow the viewport on narrow screens */
     margin: 0;
     padding-top: 1rem;
     padding-bottom: 1rem;
