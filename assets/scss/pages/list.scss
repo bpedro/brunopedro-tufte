@@ -33,9 +33,6 @@
     position: relative;
     isolation: isolate;
     overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    gap: 0.4rem;
     padding: 1.2rem 1.4rem;
     border: 1px solid #e3e3e0;
     border-radius: 6px;
@@ -61,6 +58,20 @@
     background-position: center;
     opacity: 0.2;
     pointer-events: none;
+}
+
+.post-card-content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+/* Solid backing behind the text so it stays legible no matter how bright, dark, or busy the image is. */
+.post-card.has-image .post-card-content {
+    background: rgba(255, 255, 255, 0.85);
+    border-radius: 4px;
+    padding: 0.6rem 0.7rem;
+    margin: -0.6rem -0.7rem;
 }
 
 .post-card-date {
