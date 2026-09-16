@@ -26,4 +26,25 @@
 .site-title {
     text-transform: uppercase;
     font-weight: 700;
+    font-size: 2rem; /* down from the inherited h1 3.2rem */
+}
+
+/* Scoped to the header so it doesn't affect content.header.html's per-post .subtitle. */
+.brand .subtitle {
+    font-size: 1.2rem;
+}
+
+@media (max-width: 760px) {
+    .brand {
+        padding-top: 0.5rem;
+        padding-bottom: 0.5rem;
+    }
+
+    .site-title {
+        font-size: 1.4rem;
+    }
+
+    .brand .subtitle {
+        display: none;
+    }
 }
