@@ -78,10 +78,6 @@ taxonomies:
 # -----------------------------------------------------------------------
 menu:
   nav:
-    - name: Home
-      weight: -110
-      identifier: home
-      url: /
     - name: Posts
       weight: -100
       identifier: posts
