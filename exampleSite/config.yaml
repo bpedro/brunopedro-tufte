@@ -26,6 +26,8 @@ markup:
 params:
   # Subtitle of the website
   subtitle: "Fancy subtitle."
+  # Where clicking the site title links to. Defaults to the homepage if unset.
+  # titleurl: "https://example.com/"
   favicon: "./favicon.ico"
   touchicon: "./touch-icon.png"
   # Default meta/OpenGraph description used on pages without their own description or summary

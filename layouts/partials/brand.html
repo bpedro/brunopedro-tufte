@@ -1,6 +1,6 @@
 <header class="brand">
 <div class="brand-row">
-<h1 class="site-title"><a href="{{ .Site.Home.RelPermalink }}">{{ .Site.Title }}</a></h1>
+<h1 class="site-title"><a href="{{ .Site.Params.titleurl | default .Site.Home.RelPermalink }}">{{ .Site.Title }}</a></h1>
 {{ partial "nav.html" . }}
 </div>
 <hr />

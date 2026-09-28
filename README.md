@@ -73,6 +73,7 @@ Downside: LaTeX in post title is no longer supported.
 The site specific parameters that this theme recognizes are:
 
 - `subtitle` string: If set, displayed under the main title.
+- `titleurl` string: (NEW) URL the site title links to. Defaults to the homepage if unset.
 - `showPoweredBy` boolean: If `true`, display a shoutout to Hugo and this theme.
 - `copyrightHolder` string: Inserts the value in the default copyright notice.
 - `copyright` string: Custom copyright notice.
