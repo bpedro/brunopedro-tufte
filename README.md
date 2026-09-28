@@ -79,6 +79,11 @@ The site specific parameters that this theme recognizes are:
 - `math` boolean: Site wide kill switch for Latex support
 - `codeBlocksDark` boolean: If `true`, code blocks will use a dark theme.
 - `marginNoteInd` string: (NEW) Custom indicator for margin notes, with suggestions in comment. (Only displayed on mobile devices or inside `cols` shortcode.)
+- `description` string: (NEW) Site-wide fallback meta/OpenGraph/Twitter description used on pages without their own `description` or summary.
+- `author` map: (NEW) Site owner info used for `article:author` meta tags and JSON-LD `Person`/`Article` structured data.
+  + `name` string: Author's display name.
+  + `url` string: Author's homepage or profile URL, added as `sameAs` in structured data.
+  + `twitter` string: Author's Twitter/X handle (without `@`), used for `twitter:creator`. Falls back to the site-wide `twitter` param below if unset.
 
 **Socials**
 
@@ -88,7 +93,7 @@ You can add links to your social media profile by using thoses parameters:
 
 - `github`: string
 - `gitlab`: string
-- `twitter`: string
+- `twitter`: string (also used as the site-wide `twitter:site`/`twitter:creator` fallback and in `sameAs` structured data)
 - `bluesky`: string
 - `patreon`: string
 - `youtube`: string
@@ -100,6 +105,8 @@ You can add links to your social media profile by using thoses parameters:
 - `orcid`: string
 - `google_scholar`: string
 
+All of the above (when set) are also emitted as `sameAs` links in the site's JSON-LD `Person` structured data.
+
 Please see [`exampleSite/config.yaml`](https://github.com/bpedro/brunopedro-tufte/blob/main/exampleSite/config.yaml#L47) to see the full implementation with exemples.
 
 ### Page Parameters
@@ -110,6 +117,7 @@ Please see [`exampleSite/config.yaml`](https://github.com/bpedro/brunopedro-tuft
   + `hideReadTime` boolean: if `true`, do not display the page's reading time
   estimate in metadata.
 - `toc` boolean: if true, display the table of contents for the page.
+- `description` string: (NEW) Meta/OpenGraph/Twitter description for this page. Falls back to the page summary, then to the site-wide `description` param.
 - Layout parameters: (NEW)
   + For more information, see [Hugo's Lookup Order | Hugo](https://gohugo.io/templates/lookup-order/).
   + `type` string: If set to `book`, layout files in [./layouts/book/](https://github.com/bpedro/brunopedro-tufte/tree/main/layouts/book) will be prioritised.

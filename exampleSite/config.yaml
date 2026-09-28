@@ -28,6 +28,13 @@ params:
   subtitle: "Fancy subtitle."
   favicon: "./favicon.ico"
   touchicon: "./touch-icon.png"
+  # Default meta/OpenGraph description used on pages without their own description or summary
+  description: "A responsive, mobile-first Tufte-css blog theme, forked from hugo-tufte."
+  # Site owner, used for article:author meta tags and Person structured data (JSON-LD)
+  author:
+    name: "Bruno Pedro"
+    # twitter: slashformotion # falls back to params.twitter below if unset
+    # url: "https://brunopedro.com"
   # Dark code highlighting
   codeblocksdark: false
   # Customize the indicator for margin notes

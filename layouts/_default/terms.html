@@ -1,6 +1,4 @@
-{{ partial "header.html" . }}
-
-<body>
+{{ define "main" }}
 <article id="main">
 {{ partial "brand.html" . }}
 {{ partial "content.header.html" . }}
@@ -58,5 +56,4 @@
     </div>
 {{ partial "footer.html" . }}
 </article>
-</body>
-</html>
+{{ end }}
