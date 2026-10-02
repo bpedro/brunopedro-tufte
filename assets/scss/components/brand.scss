@@ -42,6 +42,11 @@
     text-decoration: none;
 }
 
+/* Overrides the global hr's 75% width so the rule spans the full text row. */
+.brand hr {
+    width: 100%;
+    max-width: none;
+}
 @media (max-width: 760px) {
     .brand {
         padding-top: 0.5rem;
