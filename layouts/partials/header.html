@@ -3,7 +3,8 @@
 
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-{{- $desc := .Description }}
+{{- $desc := .Params.subtitle | default "" }}
+{{- if eq $desc "" }}{{ $desc = .Description }}{{ end }}
 {{- if eq $desc "" }}{{ $desc = printf "%s" .Summary | plainify | truncate 160 }}{{ end }}
 {{- if eq $desc "" }}{{ $desc = .Site.Params.description }}{{ end }}
 {{- $desc = trim $desc " " }}
