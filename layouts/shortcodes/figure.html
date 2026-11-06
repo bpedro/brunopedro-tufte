@@ -9,6 +9,7 @@
 {{- end -}}
 
 <!-- begin figure tag -->
+{{- if eq $type "margin" -}}<p>{{- end -}}
 {{- if not (eq $type "margin") -}}
   {{ if eq $type "full" }}<!-- full -->
     <figure class="fullwidth">
@@ -59,4 +60,5 @@
 <!-- end figure tag -->
 {{ if not (eq $type "margin") }}
 </figure>
+{{ else }}</p>
 {{ end }}
