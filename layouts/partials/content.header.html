@@ -23,8 +23,14 @@
     {{- end -}}
 
     {{- if not .Params.hidereadtime -}}
-    <span class="reading-time">{{ .ReadingTime }} min read&nbsp;</span>
+    <span class="reading-time">{{ .ReadingTime }} min read</span>
     {{- end -}}
+
+    {{- if ne .Params.markdowndownload false -}}
+      {{- with .OutputFormats.Get "markdown" }}
+    <span class="markdown-download">&nbsp;&bull;&nbsp;<a href="{{ .Permalink }}">md version</a></span>
+      {{- end }}
+    {{- end }}
 
     <span class="tags">
     {{- range .Params.tags -}}
@@ -32,6 +38,10 @@
     {{- end -}}
     </span>
   </span>
+  {{- else if ne .Params.markdowndownload false -}}
+    {{- with .OutputFormats.Get "markdown" }}
+  <p class="markdown-download"><a href="{{ .Permalink }}">md version</a></p>
+    {{- end }}
   {{- end -}}
 {{- end -}}
 </section>

@@ -1,6 +1,7 @@
 ---
 title: "About This Site"
 hasMath: false 
+markdownDownload: false
 ---
 
 Hello, I post random things here.

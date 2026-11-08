@@ -68,6 +68,38 @@ For usage and examples, refer to [./exampleSite/content/post/tufte-features.md ]
 
 Downside: LaTeX in post title is no longer supported.
 
+### AI-readable content
+
+When the site's output formats are configured as shown below, the theme publishes a Markdown version of each content page alongside its HTML page. The page header includes a “Download Markdown” link, and the HTML `<head>` advertises the Markdown URL with `rel="alternate"` and the `text/markdown` media type.
+
+The Markdown output preserves the authored page body and includes its title, date, and description when available. It uses Hugo's raw content, so Hugo shortcodes remain as source syntax rather than being expanded into their rendered output.
+
+The site also generates a root-level [`/llms.txt`](https://llmstxt.org/) index. It groups eligible published pages by section and lists each page's HTML URL, Markdown URL, and summary, with an optional link to the sitemap. It is an index, not a copy of the full site content.
+
+Because Hugo themes installed in the traditional `themes/` directory cannot supply these output-format settings to the site, add the following to your site's Hugo configuration (the example site's `config.yaml` includes it):
+
+```yaml
+outputFormats:
+  llms:
+    baseName: llms
+    isPlainText: true
+    mediaType: text/plain
+    notAlternative: true
+    root: true
+
+outputs:
+  home: [html, llms]
+  page: [html, markdown]
+```
+
+To hide the download and discovery links for an individual page, set this in its front matter:
+
+```yaml
+markdownDownload: false
+```
+
+The page is then omitted from `llms.txt` and its HTML page no longer advertises or displays the Markdown link. Hugo still publishes the Markdown file at its output URL.
+
 ### Site Parameters
 
 The site specific parameters that this theme recognizes are:

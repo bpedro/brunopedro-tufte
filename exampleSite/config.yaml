@@ -75,6 +75,22 @@ taxonomies:
   series: series
   tag: tags
 
+outputFormats:
+  llms:
+    baseName: llms
+    isPlainText: true
+    mediaType: text/plain
+    notAlternative: true
+    root: true
+
+outputs:
+  home:
+    - html
+    - llms
+  page:
+    - html
+    - markdown
+
 # -----------------------------------------------------------------------
 # Navigation menu
 # -----------------------------------------------------------------------

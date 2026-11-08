@@ -26,6 +26,11 @@
 {{- with .OutputFormats.Get "rss" }}
 <link rel="alternate" type="{{ .MediaType.Type }}" href="{{ .Permalink }}" title="{{ $.Site.Title }}" />
 {{- end }}
+{{- if and .IsPage (ne .Params.markdowndownload false) }}
+  {{- with .OutputFormats.Get "markdown" }}
+<link rel="alternate" type="{{ .MediaType.Type }}" href="{{ .Permalink }}" title="{{ $.Title }} (Markdown)" />
+  {{- end }}
+{{- end }}
 <!-- opengraph -->
 <meta property="og:site_name" content="{{ .Site.Title }}" />
 <meta property="og:title" content="{{ .Title }} - {{ .Site.Title }}" />

@@ -7,6 +7,12 @@
     margin-top: 1em;
 }
 
+.content-meta .markdown-download,
+.content-meta .markdown-download a {
+    font-family: var(--font-sans);
+    font-size: inherit;
+}
+
 .content-meta .author {
     /*color: rgb(90, 20, 55)*/
     // color: rgba(65, 70, 75, 1);

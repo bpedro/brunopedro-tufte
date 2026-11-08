@@ -1,0 +1,27 @@
+# {{ .Site.Title }}
+
+> {{ .Site.Params.description | default .Site.Title }}
+
+{{- $sections := slice -}}
+{{- range site.RegularPages.GroupBy "Section" -}}
+	{{- $pages := where .Pages "Params.markdowndownload" "ne" false -}}
+	{{- if and .Key $pages -}}
+		{{- $entries := slice -}}
+		{{- range $pages.ByDate.Reverse -}}
+			{{- $summary := .Description | default .Summary | plainify | htmlUnescape | replaceRE "\\s+" " " | trim " " | truncate 160 -}}
+			{{- $htmlURL := .OutputFormats.Get "html" -}}
+			{{- $markdownURL := .OutputFormats.Get "markdown" -}}
+			{{- $entries = $entries | append (printf "- [%s](%s): %s [Markdown](%s)" .LinkTitle $htmlURL.Permalink $summary $markdownURL.Permalink) -}}
+		{{- end -}}
+		{{- $sections = $sections | append (printf "## %s\n\n%s" (.Key | title) (delimit $entries "\n")) -}}
+	{{- end -}}
+{{- end -}}
+
+{{- if $sections }}
+
+{{ delimit $sections "\n\n" }}
+{{- end }}
+
+## Optional
+
+- [Sitemap]({{ "/sitemap.xml" | absURL }})
